@@ -17,7 +17,6 @@ class fashionlist(ListView):
 
 
 
-def fashion_detail(request,slug):
-    fashion_1=Fashion.objects.get(slug=slug)
-    return render (request,'fashion_detail.html',{'fashion_1':fashion_1})
+class fashion_detail(DetailView):
+    model=Fashion
     
