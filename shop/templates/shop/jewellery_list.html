@@ -1,0 +1,168 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+
+
+  <!-- electronic section start -->
+  <div class="fashion_section">
+    <div id="electronic_main_slider" class="carousel slide" data-ride="carousel">
+       <div class="carousel-inner">
+          <div class="carousel-item active">
+             <div class="container">
+                <h1 class="fashion_taital">Electronic</h1>
+                <div class="fashion_section_2">
+                   <div class="row">
+                    {% for object in object_list %}
+                        <div class="col-lg-4 col-sm-4">
+                            <div class="box_main">
+                                <h4 class="shirt_text">{{object.name}}</h4>
+                                <p class="price_text">Start Price  <span style="color: #262626;">$ {{object.price}}</span></p>
+                                <div class="electronic_img"><img src="{{object.image.url}}"></div>
+                                <div class="btn_main">
+                                <div class="buy_bt"><a href="#">Buy Now</a></div>
+                                <div class="seemore_bt"><a href="{% url 'shopings:jewellery_detail' object.slug %}">See More</a></div>
+                                </div>
+                            </div>
+                        </div>
+                      {% endfor %}
+                     
+                   </div>
+                   {% if is_paginated %}
+                        <div class="row">
+            
+                            
+                            <div class="col-lg-12">
+                                    <div class="bottom-paginate">
+                                    <p class="page-info">Showing 12 of 60 Results</p>
+                                    <ul class="pagination">
+                                        {% if page_obj.has_previous %}
+                                                <li class="page-item">
+            
+                                                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                                                            <i class="fas fa-long-arrow-alt-left"></i>
+                                                    </a>
+                                                </li>
+                                                {% endif %}
+            
+            
+                                                {% for i in paginator.page_range %}
+                                                    {% if page_obj.number == i %}
+            
+            
+                                                            <li class="page-item"><a class="page-link active" href="#">{{ i }}</a></li>
+            
+                                                            {% elif i > page_obj.number|add:'-5' and i < page_obj.number|add:'5 ' %}
+            
+                                                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a> </li>
+            
+                                                            {% endif %}
+                                                {% endfor %}
+            
+                                                {% if page_obj.has_next %}
+            
+                                                <li class="page-item">
+                                                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+            
+                                                            <i class="fas fa-long-arrow-alt-right"></i>
+                                                    </a>
+                                                </li>
+                                                {% endif %}
+            
+                                        </ul>
+                                    </div>
+                                    </div>
+                            
+                        </div>
+                    {% endif %}
+                </div>
+             </div>
+          </div>
+          <div class="carousel-item">
+             <div class="container">
+                <h1 class="fashion_taital">Electronic</h1>
+                <div class="fashion_section_2">
+                   <div class="row">
+                    {% for object in object_list %}
+                        <div class="col-lg-4 col-sm-4">
+                            <div class="box_main">
+                                <h4 class="shirt_text">{{object.name}}</h4>
+                                <p class="price_text">Start Price  <span style="color: #262626;">$ {{object.price}}</span></p>
+                                <div class="electronic_img"><img src="{{object.image.url}}"></div>
+                                <div class="btn_main">
+                                <div class="buy_bt"><a href="#">Buy Now</a></div>
+                                <div class="seemore_bt"><a href="{% url 'shopings:jewellery_detail' object.slug %}">See More</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    
+                   </div>
+
+                   {% if is_paginated %}
+                        <div class="row">
+            
+                            
+                            <div class="col-lg-12">
+                                    <div class="bottom-paginate">
+                                    <p class="page-info">Showing 12 of 60 Results</p>
+                                    <ul class="pagination">
+                                        {% if page_obj.has_previous %}
+                                                <li class="page-item">
+            
+                                                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                                                            <i class="fas fa-long-arrow-alt-left"></i>
+                                                    </a>
+                                                </li>
+                                                {% endif %}
+            
+            
+                                                {% for i in paginator.page_range %}
+                                                    {% if page_obj.number == i %}
+            
+            
+                                                            <li class="page-item"><a class="page-link active" href="#">{{ i }}</a></li>
+            
+                                                            {% elif i > page_obj.number|add:'-5' and i < page_obj.number|add:'5 ' %}
+            
+                                                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a> </li>
+            
+                                                            {% endif %}
+                                                {% endfor %}
+            
+                                                {% if page_obj.has_next %}
+            
+                                                <li class="page-item">
+                                                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+            
+                                                            <i class="fas fa-long-arrow-alt-right"></i>
+                                                    </a>
+                                                </li>
+                                                {% endif %}
+            
+                                        </ul>
+                                    </div>
+                                    </div>
+                            
+                        </div>
+                    {% endif %}
+                </div>
+             </div>
+          </div>
+          
+       </div>
+       <a class="carousel-control-prev" href="#electronic_main_slider" role="button" data-slide="prev">
+       <i class="fa fa-angle-left"></i>
+       </a>
+       <a class="carousel-control-next" href="#electronic_main_slider" role="button" data-slide="next">
+       <i class="fa fa-angle-right"></i>
+       </a>
+    </div>
+ </div>
+ <!-- electronic section end -->
+
+
+
+ {% endblock body %}

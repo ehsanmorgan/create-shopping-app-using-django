@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+
+
+
+<section class="inner-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="product-details-frame">
+                    <h3 class="frame-title">Description</h3>
+                    <div class="tab-descrip">
+                        <p>{{object.description}}</p>
+                    
+                    </div>
+                </div>
+                <div class="product-details-frame">
+                    <h3 class="frame-title">Spacification</h3>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Product code</th>
+                                <td>SKU: 101783</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Weight</th>
+                                <td>1kg, 2kg</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Styles</th>
+                                <td>@Girly</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Properties</th>
+                                <td>Short Dress</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="product-details-frame">
+                    <h3 class="frame-title">Reviews (2)</h3>
+                    <ul class="review-list">
+                        <li class="review-item">
+                            <div class="review-media">
+                                <a class="review-avatar" href="#">
+                                    <img src="{{object.image.url}}" alt="review">
+                                </a>
+                                <h5 class="review-meta">
+                                    <a href="#">miron mahmud</a>
+                                    <span>June 02, 2020</span>
+                                </h5>
+                            </div>
+                            <ul class="review-rating">
+                                <li class="icofont-ui-rating"></li>
+                                <li class="icofont-ui-rating"></li>
+                                <li class="icofont-ui-rating"></li>
+                                <li class="icofont-ui-rating"></li>
+                                <li class="icofont-ui-rate-blank"></li>
+                            </ul>
+                            <p class="review-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus hic amet qui velit, molestiae suscipit perferendis, autem doloremque blanditiis dolores nulla excepturi ea nobis!</p>
+                            <form class="review-reply">
+                                <input type="text" placeholder="reply your thoughts">
+                                <button><i class="icofont-reply"></i>reply</button>
+                            </form>
+                           
+                        </li>
+                        <li class="review-item">
+                            <div class="review-media">
+                                <a class="review-avatar" href="#">
+                                    <img src="images/avatar/04.jpg" alt="review">
+                                </a>
+                                <h5 class="review-meta">
+                                    <a href="#">shipu shikdar</a>
+                                    <span>June 02, 2020</span>
+                                </h5>
+                            </div>
+                            <ul class="review-rating">
+                                <li class="icofont-ui-rating"></li>
+                                <li class="icofont-ui-rating"></li>
+                                <li class="icofont-ui-rating"></li>
+                                <li class="icofont-ui-rating"></li>
+                                <li class="icofont-ui-rate-blank"></li>
+                            </ul>
+                         
+                        </li>
+                    </ul>
+                </div>
+                <div class="product-details-frame">
+                    <h3 class="frame-title">add your review</h3>
+                    <form class="review-form">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="star-rating">
+                                    <input type="radio" name="rating" id="star-1"><label for="star-1"></label>
+                                    <input type="radio" name="rating" id="star-2"><label for="star-2"></label>
+                                    <input type="radio" name="rating" id="star-3"><label for="star-3"></label>
+                                    <input type="radio" name="rating" id="star-4"><label for="star-4"></label>
+                                    <input type="radio" name="rating" id="star-5"><label for="star-5"></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Describe"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                
+                            </div>
+                            <div class="col-lg-12">
+                                <button class="btn btn-inline">
+                                    <i class="icofont-water-drop"></i>
+                                    <span>drop your review</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock body %}
