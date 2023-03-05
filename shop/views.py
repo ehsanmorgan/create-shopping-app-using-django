@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Fashion
+from django.views.generic import ListView,DetailView
 
 # Create your views here.
 
@@ -9,9 +10,10 @@ from .models import Fashion
 
 
 
-def fashionlist(request):
-    fashion=Fashion.objects.all()
-    return render(request,'fashion_list.html',{'fashion':fashion})
+class fashionlist(ListView):
+    model=Fashion
+    paginate_by = 9
+
 
 
 
