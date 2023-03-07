@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from .models import Fashion,Electronic,Jewellery,Reviews
 from django.views.generic import ListView,DetailView
 from .forms import commentform
+from django.http import JsonResponse
+from django.template.loader import render_to_string
 
 # Create your views here.
 

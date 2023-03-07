@@ -1,0 +1,17 @@
+{% for review in object.review_electronic.all %}
+    <li class="review-item">
+        <div class="review-media">
+            <a class="review-avatar" href="#">
+                <img src="{{object.image.url}}" alt="review">
+            </a>
+            <h5 class="review-meta">
+                <a href="#">{{review.user}}</a>
+                <span>{{review.createt_at}}</span>
+            </h5>
+        </div>
+    
+        <p class="review-desc">Your Comment : {{review.comment}}</p>
+    
+
+    </li>
+{% endfor %}

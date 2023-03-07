@@ -234,7 +234,10 @@ button {
     height: auto;
     padding: 10px 0px;
 }
+.review-desc {
+    margin: unset;
 
+}
 .custom_menu {
     width: 100%;
     margin: 0 auto;
