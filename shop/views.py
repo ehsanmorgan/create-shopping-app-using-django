@@ -51,6 +51,11 @@ class electroniclist(ListView):
 
 class electronic_detail(DetailView):
     model=Electronic
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["reviews_1"] = Reviews.objects.filter(electronic=self.get_object())
+        return context
+    
     
     
     
