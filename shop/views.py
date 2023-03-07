@@ -18,7 +18,14 @@ def add_reviews(request,slug):
             myform.electronic=add_comment
             myform.save()
             
-    return redirect(f'/center/electro_detail/{add_comment.slug}')
+            
+            
+            reviews_1=Reviews.objects.filter(electronic=add_comment)
+            html = render_to_string('include/add_allcomment.html',{'reviews_1':reviews_1 , request:request})
+            return JsonResponse({'result':html})
+            
+            
+    
         
 
 
