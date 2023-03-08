@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
-from .models import Fashion,Electronic,Jewellery,Reviews
+from .models import Fashion,Electronic,Jewellery,Reviews,Reviews1
 from django.views.generic import ListView,DetailView
-from .forms import commentform
+from .forms import commentform,fashionform
 from django.http import JsonResponse
 from django.template.loader import render_to_string
 
@@ -24,6 +24,24 @@ def add_reviews(request,slug):
             html = render_to_string('include/add_allcomment.html',{'reviews_1':reviews_1 , request:request})
             return JsonResponse({'result':html})
             
+            
+            
+            
+def add_reviews1(request,slug):
+    add_comment1=Fashion.objects.get(slug=slug)
+    if request.method=='POST':
+        form=fashionform(request.POST)
+        if form.is_valid():
+            myform=form.save(commit=False)
+            myform.user=request.user
+            myform.fashion=add_comment1
+            myform.save()
+            
+            
+            
+            reviews_2=Reviews1.objects.filter(fashion=add_comment1)
+            html = render_to_string('include/add_all2.html',{'reviews_2':reviews_2 , request:request})
+            return JsonResponse({'result':html})
             
     
 
