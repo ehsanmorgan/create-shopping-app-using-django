@@ -22,8 +22,9 @@
       
       <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
       
-      <!-- Responsive-->
-      <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+      <!-- Responsive-->{% block css %}
+                            <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+                        {% endblock css %}
       <!-- fevicon -->
       <link rel="icon" href="{% static 'images/fevicon.png' %}" type="image/gif" />
       <!-- Scrollbar Custom CSS -->
