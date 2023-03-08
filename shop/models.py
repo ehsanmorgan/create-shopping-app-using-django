@@ -89,6 +89,7 @@ class Reviews(models.Model):
     electronic=models.ForeignKey(Electronic,related_name='review_electronic',on_delete=models.CASCADE)
     comment=models.TextField(max_length=200)
     createt_at=models.DateTimeField(default=timezone.now)
+    jewellery_100=models.ForeignKey(Jewellery,related_name='Jewellery_reviews',on_delete=models.SET_NULL,null=True,blank=True)
     
     def __str__(self):
         return self.comment

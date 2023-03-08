@@ -26,7 +26,7 @@ def add_reviews(request,slug):
             
             
     
-        
+
 
 
 
