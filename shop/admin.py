@@ -11,7 +11,7 @@ class reviewAdmin(admin.ModelAdmin):
     
     
 class reviewAdmin1(admin.ModelAdmin):
-    list_display=['id','comment1']
+    list_display=['id','comment1','rate']
     list_filter=['comment1']
     list_editable=['comment1']
     search_fields=['comment1']

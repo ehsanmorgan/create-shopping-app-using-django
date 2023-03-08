@@ -12,4 +12,4 @@ class commentform(forms.ModelForm):
 class fashionform(forms.ModelForm):
     class Meta:
         model=Reviews1
-        fields=['comment1']
+        fields=['comment1','rate']
