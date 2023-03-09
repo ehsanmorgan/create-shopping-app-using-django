@@ -39,6 +39,8 @@ def add_reviews1(request,slug):
             
             
             
+            
+            
             reviews_2=Reviews1.objects.filter(fashion=add_comment1)
             html = render_to_string('include/add_all2.html',{'reviews_2':reviews_2 , request:request})
             return JsonResponse({'result':html})
@@ -56,6 +58,10 @@ class fashionlist(ListView):
 
 class fashion_detail(DetailView):
     model=Fashion
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["reviews_2"] = Reviews1.objects.filter(fashion=self.get_object())
+        return context
     
     
     

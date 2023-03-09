@@ -1,8 +1,5 @@
 {% extends 'base.html' %}
-{% load static%}
-{% block css %}
-        <link rel="stylesheet" href="{% static 'css/product-details.css' %}">  
-{% endblock css %}
+
 
 
 {% block body %}
@@ -18,7 +15,11 @@
                 <div class="product-details-frame">
                     <h3 class="frame-title">Description</h3>
                     <div class="tab-descrip">
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur, ex! Incidunt nemo aspernatur fugiat, saepe suscipit sit perferendis illum magnam voluptates aliquid blanditiis, dolor assumenda dolorem ullam harum, doloribus molestiae! Unde voluptas maiores exercitationem aperiam debitis accusantium, placeat vero neque, atque eius numquam incidunt, culpa a odit consequatur nostrum aut nisi quisquam sequi dignissimos sed. Odio necessitatibus officiis repudiandae omnis soluta fugiat aliquam eius quae. Unde, ipsam atque assumenda consequuntur quia alias nulla, cupiditate ab quos eveniet pariatur expedita repellendus fugit. Quisquam fuga et, dolore aut temporibus atque itaque nesciunt reiciendis nobis, deleniti nihil vel qui perferendis molestias aliquam doloremque.</p>
+                        <p>{{object.description}}</p>
+                        <a class="review-avatar" href="#">
+                            <img src="{{object.image.url}}" alt="review">
+                        </a>
+                    
                     </div>
                 </div>
                 <div class="product-details-frame">
@@ -46,38 +47,38 @@
                 </div>
                 <div class="product-details-frame">
                     <h3 class="frame-title">Reviews ({{object.fashion_review.all|length}}) </h3>
-                    <ul class="review-list" id="all1">
-                            {% include 'include/add_all2.html' %}
+            <form class="review-form"  id="reviewForm"   method="POST" action="{% url  'shopings:add_review1' object.slug %}"  > 
+                {% csrf_token %}
+                    <ul class="review-list" id="all">
+                         {% include 'include/add_all2.html' %}
+ 
                     </ul>
                 </div>
                 <div class="product-details-frame">
                     <h3 class="frame-title">add your review</h3>
-                    <form class="review-form" id="reviewForm1" method="POST" action="{% url  'shopings:add_review1' object.slug %} ">
-                        {% csrf_token %}
+                   
+                       
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="star-rating">
-                                    <input type="radio" name="rate" value=5 id="star-1"><label for="star-1"></label>
-                                    <input type="radio" name="rate" value=4 id="star-2"><label for="star-2"></label>
-                                    <input type="radio" name="rate" value=3 id="star-3"><label for="star-3"></label>
-                                    <input type="radio" name="rate" value=2 id="star-4"><label for="star-4"></label>
-                                    <input type="radio" name="rate" value=1 id="star-5"><label for="star-5"></label>
-                                </div>
+                              
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <textarea class="form-control" name="comment1" placeholder="Describe"></textarea>
                                 </div>
                             </div>
-                           
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                
+                            </div>
                             <div class="col-lg-12">
-                                <button class="btn btn-inline">
+                                <button class="  mb-5  btn btn-inline">
                                     <i class="icofont-water-drop"></i>
                                     <span>drop your review</span>
                                 </button>
                             </div>
                         </div>
-                    </form>
+            </form>
                 </div>
             </div>
         </div>
@@ -90,17 +91,11 @@
 
 
 
-
-
-
-
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
     $(document).ready(function(e){
-        $(document).on('submit','#reviewForm1',function(e){
+        $(document).on('submit','#reviewForm',function(e){
             e.preventDefault();
             $.ajax({
                 type:$(this).attr('method'),
@@ -108,8 +103,8 @@
                 data:$(this).serialize(),
                 dataType:'json',
                 success:function(response){
-                    $('#all1').html(response['result'])
-                    $("#reviewForm1").trigger('reset');
+                    $('#all').html(response['result'])
+                    $("#reviewForm").trigger('reset');
                     
 
                 },
