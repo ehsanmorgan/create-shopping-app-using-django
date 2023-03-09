@@ -10,6 +10,8 @@ from django.template.loader import render_to_string
 
 
 
+
+
 def add_reviews(request,slug):
     add_comment=Electronic.objects.get(slug=slug)
     if request.method=='POST':
