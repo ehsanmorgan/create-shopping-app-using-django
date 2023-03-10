@@ -102,8 +102,21 @@ class Reviews1(models.Model):
     fashion=models.ForeignKey(Fashion,related_name='fashion_review',on_delete=models.CASCADE)
     comment1=models.TextField(max_length=200)
     createt_at1=models.DateTimeField(default=timezone.now)
-    rate=models.IntegerField()
+    
     
     
     def __str__(self):
         return self.comment1
+    
+    
+    
+class Reviews_Jewellery(models.Model):
+    user=models.ForeignKey(User,related_name='review_author2',on_delete=models.SET_NULL,null=True,blank=True)
+    jewellery=models.ForeignKey(Jewellery,related_name='jewellery_review',on_delete=models.CASCADE)
+    comment2=models.TextField(max_length=200)
+    createt_at2=models.DateTimeField(default=timezone.now)
+    
+    
+    
+    def __str__(self):
+        return self.comment2

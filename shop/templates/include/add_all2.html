@@ -9,13 +9,8 @@
                 <span>{{review.createt_at1}}</span>
             </h5>
         </div>
-        <ul class="review-rating">
-            <li class="  {% if review.rate > 0 %}icofont-ui-rating{% else %} icofont-ui-rate-blank {% endif %}"></li>
-            <li class="  {% if review.rate > 1  %}icofont-ui-rating{% else %} icofont-ui-rate-blank {% endif %}"></li>
-            <li class="  {% if review.rate > 2 %}icofont-ui-rating{% else %} icofont-ui-rate-blank {% endif %}"></li>
-            <li class="  {% if review.rate > 3  %}icofont-ui-rating{% else %} icofont-ui-rate-blank {% endif %}"></li>
-            <li class="  {% if review.rate > 4  %}icofont-ui-rating{% else %} icofont-ui-rate-blank {% endif %}"></li>
-        </ul>
+       
             <p class="review-desc"> {{ review.comment1 }} </p>
+            <hr>
     </li>
 {% endfor %}

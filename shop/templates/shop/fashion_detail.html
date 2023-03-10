@@ -47,9 +47,9 @@
                 </div>
                 <div class="product-details-frame">
                     <h3 class="frame-title">Reviews ({{object.fashion_review.all|length}}) </h3>
-            <form class="review-form"  id="reviewForm"   method="POST" action="{% url  'shopings:add_review1' object.slug %}"  > 
+            <form class="review-form"  id="review1Form"   method="POST" action="{% url  'shopings:add_review1' object.slug %}"  > 
                 {% csrf_token %}
-                    <ul class="review-list" id="all">
+                    <ul class="review-list" id="all1">
                          {% include 'include/add_all2.html' %}
  
                     </ul>
@@ -95,7 +95,7 @@
 
 <script>
     $(document).ready(function(e){
-        $(document).on('submit','#reviewForm',function(e){
+        $(document).on('submit','#review1Form',function(e){
             e.preventDefault();
             $.ajax({
                 type:$(this).attr('method'),
@@ -103,8 +103,8 @@
                 data:$(this).serialize(),
                 dataType:'json',
                 success:function(response){
-                    $('#all').html(response['result'])
-                    $("#reviewForm").trigger('reset');
+                    $('#all1').html(response['result'])
+                    $("#review1Form").trigger('reset');
                     
 
                 },

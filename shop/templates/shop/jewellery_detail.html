@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+
+
+{% block body %}
+
+
+
+
+
+<section class="inner-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="product-details-frame">
+                    <h3 class="frame-title">Description</h3>
+                    <div class="tab-descrip">
+                        <p>{{object.description}}</p>
+                        <a class="review-avatar" href="#">
+                            <img src="{{object.image.url}}" alt="review">
+                        </a>
+                    
+                    </div>
+                </div>
+                <div class="product-details-frame">
+                    <h3 class="frame-title">Spacification</h3>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Product code</th>
+                                <td>SKU: 101783</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Weight</th>
+                                <td>1kg, 2kg</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Styles</th>
+                                <td>@Girly</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Properties</th>
+                                <td>Short Dress</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="product-details-frame">
+                    <h3 class="frame-title">Reviews ({{object.jewellery_review.all|length}}) </h3>
+            <form class="review-form"  id="review2Form"   method="POST" action="{% url  'shopings:add_review2' object.slug %}"  > 
+                {% csrf_token %}
+                    <ul class="review-list" id="all2">
+                         {% include 'include/jewellery_comment.html' %}
+ 
+                    </ul>
+                </div>
+                <div class="product-details-frame">
+                    <h3 class="frame-title">add your review</h3>
+                   
+                       
+                        <div class="row">
+                            <div class="col-lg-12">
+                              
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="comment2" placeholder="Describe"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                
+                            </div>
+                            <div class="col-lg-12">
+                                <button class="  mb-5  btn btn-inline">
+                                    <i class="icofont-water-drop"></i>
+                                    <span>drop your review</span>
+                                </button>
+                            </div>
+                        </div>
+            </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    $(document).ready(function(e){
+        $(document).on('submit','#review2Form',function(e){
+            e.preventDefault();
+            $.ajax({
+                type:$(this).attr('method'),
+                url:$(this).attr('action'),
+                data:$(this).serialize(),
+                dataType:'json',
+                success:function(response){
+                    $('#all2').html(response['result'])
+                    $("#review2Form").trigger('reset');
+                    
+
+                },
+                error:function(response){}
+
+
+
+            })                    
+        })
+    })
+</script>
+
+
+
+
+
+{% endblock body %}

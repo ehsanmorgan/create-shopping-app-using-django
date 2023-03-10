@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
-from .models import Fashion,Electronic,Jewellery,Reviews,Reviews1
+from .models import Fashion,Electronic,Jewellery,Reviews,Reviews1,Reviews_Jewellery
 from django.views.generic import ListView,DetailView
-from .forms import commentform,fashionform
+from .forms import commentform,fashionform,jewelleryform
 from django.http import JsonResponse
 from django.template.loader import render_to_string
 
@@ -45,15 +45,25 @@ def add_reviews1(request,slug):
             myform.save()
             
             
-            
-            
-            
             reviews_2=Reviews1.objects.filter(fashion=add_comment1)
             html = render_to_string('include/add_all2.html',{'reviews_2':reviews_2 , request:request})
             return JsonResponse({'result':html})
             
     
-
+def add_reviews2(request,slug):
+    add_comment2=Jewellery.objects.get(slug=slug)
+    if request.method=='POST':
+        form=jewelleryform(request.POST)
+        if form.is_valid():
+            myform=form.save(commit=False)
+            myform.user=request.user
+            myform.jewellery=add_comment2
+            myform.save()
+            
+            
+            reviews_3=Reviews_Jewellery.objects.filter(jewellery=add_comment2)
+            html = render_to_string('include/jewellery_comment.html',{'reviews_3':reviews_3 , request:request})
+            return JsonResponse({'result':html})
 
 
 
@@ -101,3 +111,7 @@ class jewellerylist(ListView):
 
 class jewellery_detail(DetailView):
     model=Jewellery
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["reviews_3"] = Reviews_Jewellery.objects.filter(jewellery=self.get_object())
+        return context

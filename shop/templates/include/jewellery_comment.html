@@ -1,4 +1,4 @@
-{% for review in reviews_1 %}
+{% for review in reviews_3 %}
     <li class="review-item">
         <div class="review-media">
             <a class="review-avatar" href="#">
@@ -6,11 +6,11 @@
             </a>
             <h5 class="review-meta">
                 <a href="#">{{ review.user }}</a>
-                <span>{{review.createt_at}}</span>
+                <span>{{review.createt_at2}}</span>
             </h5>
         </div>
-            <p class="review-desc"> {{ review.comment }} </p>
+       
+            <p class="review-desc"> {{ review.comment2 }} </p>
             <hr>
-
     </li>
 {% endfor %}
