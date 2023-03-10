@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import add_reviews,add_reviews1 ,fashionlist,fashion_detail,electroniclist,electronic_detail,jewellerylist,jewellery_detail,add_reviews2
+from .api import elecrtonicListApi,elecrtonicDetailtApi
 
 
 app_name='shop'
@@ -15,4 +16,11 @@ urlpatterns = [
     path('electro_detail/<slug:slug>',electronic_detail.as_view(),name='electronic_detail'),
     path('jewellery_list',jewellerylist.as_view(),name='jewellerylist'),
     path('jewellery_detail/<slug:slug>',jewellery_detail.as_view(),name='jewellery_detail'),
+    
+    
+    
+    
+    #API
+    path('api/list',elecrtonicListApi.as_view(),name='api-list'),
+    path('api/list/<slug:slug>',elecrtonicDetailtApi.as_view(),name='productDetailApi-list'),
 ]
