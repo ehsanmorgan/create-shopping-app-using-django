@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'shop',
     'order',
     'rest_framework',
+    'django_filters',
     
 ]
 
