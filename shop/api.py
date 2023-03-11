@@ -1,7 +1,7 @@
 from rest_framework.decorators import api_view
 from rest_framework import generics
-from .serializer import electronicListSerialize,electronicDetailSerialize
-from .models import Electronic
+from .serializer import electronicListSerialize,electronicDetailSerialize,fashionSerializer
+from .models import Electronic,Fashion
 from .myfilter import electroncFilter
 import django_filters.rest_framework
 
@@ -23,4 +23,6 @@ class elecrtonicDetailtApi(generics.RetrieveDestroyAPIView):
     lookup_field='slug'
     
     
- 
+class fashionListApi(generics.ListAPIView):
+    queryset=Fashion.objects.all() 
+    serializer_class=fashionSerializer 

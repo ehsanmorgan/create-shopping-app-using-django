@@ -1,7 +1,28 @@
 from rest_framework import serializers
-from .models import Electronic,Reviews
+from .models import Electronic,Reviews,Fashion
 from rest_framework.response import Response
 import django_filters.rest_framework
+
+
+
+
+
+
+class fashionSerializer(serializers.ModelSerializer):
+    price_tex=serializers.SerializerMethodField('mynew_price')
+    review_count=serializers.SerializerMethodField()
+    class Meta:
+        model=Fashion
+        fields='__all__'
+        
+          
+    def get_review_count(self,Fashion):
+        rview=Fashion.fashion_review.all().count()
+        return rview
+        
+        
+    def mynew_price(self,Electronic):
+        return Electronic.price*1.2
 
 
 
