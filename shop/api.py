@@ -26,6 +26,8 @@ class elecrtonicDetailtApi(generics.RetrieveDestroyAPIView):
 class fashionListApi(generics.ListAPIView):
     queryset=Fashion.objects.all() 
     serializer_class=fashionSerializer 
+    
+    
 
 
 class fashion_detail(generics.RetrieveDestroyAPIView):
