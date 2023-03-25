@@ -104,6 +104,8 @@ class electronic_detail(DetailView):
     
     
     
+    
+    
 class jewellerylist(ListView):
     model=Jewellery
     paginate_by = 18
