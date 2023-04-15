@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     'order',
     'rest_framework',
     'django_filters',
+    'accounts',
+    
+    
+    
     
 ]
 

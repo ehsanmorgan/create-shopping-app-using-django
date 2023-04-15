@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+    path("accounts/", include("django.contrib.auth.urls")),
     path('admin/', admin.site.urls),
     path('center/',include('shop.urls',namespace='shopings')),
     path('',include('setting.urls',namespace='home')),
