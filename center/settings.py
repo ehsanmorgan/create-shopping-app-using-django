@@ -180,5 +180,8 @@ INTERNAL_IPS = [
 ]
 
 
-
+STRIPE_PUBLISHABLE_KEY = 'pk_test_3sqoDy4uTimfP9g265xD4SOT'
+STRIPE_SECRET_KEY = 'sk_test_k4ibelpPzIvYHYq4CHwKOck1'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
