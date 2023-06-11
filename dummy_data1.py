@@ -32,3 +32,4 @@ def seed_electronic(n):
     print(f"seed{n} electronic ...")
     
 seed_electronic(100)
+
