@@ -30,7 +30,7 @@ class fashionListApi(generics.ListAPIView):
     
 
 
-class fashion_detail(generics.RetrieveDestroyAPIView):
+class fashion_detailapi(generics.RetrieveDestroyAPIView):
     queryset=Fashion.objects.all()
     serializer_class=fashionDetailSerializer 
     lookup_field='slug'
