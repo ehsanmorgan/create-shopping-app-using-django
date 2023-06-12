@@ -34,3 +34,7 @@
   {# Assumes you setup the password_reset view in your URLconf #}
   <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
 
+  <div class="user-form-remind">
+    <p>Don't have any account?<a href="{% url 'accounts:signup' %}">register here</a></p>
+</div>
+

@@ -20,11 +20,14 @@ from django.conf import settings
 
 urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")),
+    path('accounts/',include('accounts.urls',namespace='accounts')),
     path('admin/', admin.site.urls),
     path('center/',include('shop.urls',namespace='shopings')),
     path('',include('setting.urls',namespace='home')),
     path('order/',include('order.urls',namespace='orders')),
     path('api-auth/', include('rest_framework.urls')),
+    path('i18n/', include('django.conf.urls.i18n')),
+
 ]
 urlpatterns+= static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

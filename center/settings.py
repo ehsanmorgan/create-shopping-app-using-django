@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'accounts',
+    "django_bootstrap5",
     
     
     
