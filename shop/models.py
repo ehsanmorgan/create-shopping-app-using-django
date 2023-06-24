@@ -21,6 +21,9 @@ class Fashion(models.Model):
     
     
     
+    
+    
+    
     def save(self,*args, **kwargs):
         self.slug=slugify(self.name)
         super(Fashion,self).save(*args, **kwargs)
